@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      content: 'content!!',
+      content: '',
       counter: 0,
       questionId: 1,
       question: '',
@@ -47,6 +47,7 @@ class App extends React.Component {
   };
 
   handleAnswerSelected(event) {
+    console.log('event.currentTarget.value: ', event.currentTarget.value);
     this.setUserAnswer(event.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
@@ -76,7 +77,7 @@ class App extends React.Component {
         answer: ''
       });
     }
-
+/*getResults calculates whether correct or wrong has the higher total*/
     getResults() {
       const answersCount = this.state.answersCount;
       const answersCountKeys = Object.keys(answersCount);
@@ -85,7 +86,7 @@ class App extends React.Component {
 
       return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
     }
-
+/*setResults gets result from getResults*/
     setResults(result) {
     if (result.length === 1) {
       this.setState({ result: result[0] });

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CSSTransitionGroup } from 'react-transition-group';
+// import { CSSTransitionGroup } from 'react-transition-group';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 function Result(props) {
@@ -16,7 +16,7 @@ function Result(props) {
       transitionAppearTimeout={500}
     >
       <div>
-        <h2 className="center">You got {props.answersCount.correct} right and {props.answersCount.wrong} wrong, well done!</h2>
+        <h2 className="center">You got {props.answersCount.correct} right and {props.answersCount.wrong} wrong.</h2>
       </div>
     </ReactCSSTransitionGroup>
   );
