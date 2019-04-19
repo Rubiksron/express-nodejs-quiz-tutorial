@@ -1,0 +1,36 @@
+{
+  "name": "express-nodejs-quiz-tutorial",
+  "version": "1.0.0",
+  "description": "tutorial on nodejs and express",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rubiksron/express-nodejs-quiz-tutorial.git"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.7.2",
+    "parcel-bundler": "^1.6.2",
+    "react-addons-update": "^15.6.2",
+    "react-transition-group": "^4.0.0"
+  },
+  "author": "ron dunphy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rubiksron/express-nodejs-quiz-tutorial/issues"
+  },
+  "homepage": "https://github.com/Rubiksron/express-nodejs-quiz-tutorial#readme"
+}
