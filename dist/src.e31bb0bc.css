@@ -61,10 +61,9 @@ body {
 .radioCustomButton {
   position: absolute;
   width: auto;
-  opacity: 0; }
+  opacity: 10; }
 
-.radioCustomButton,
-.radioCustomLabel {
+.radioCustomButton, .radioCustomLabel {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer; }
@@ -77,7 +76,7 @@ body {
   font-size: 16px;
   line-height: 1.5; }
 
-.radioCustomButton ~ .radioCustomLabel:before {
+.radioCustomLabel > .radioCustomButton {
   position: absolute;
   top: 20px;
   left: 38px;
@@ -86,12 +85,13 @@ body {
   content: '';
   display: inline-block;
   vertical-align: middle;
-  background: #fff;
+  background: #lightblue;
   border: 1px solid #bbb;
   border-radius: 50%;
   transition: all 0.3s; }
 
-.radioCustomButton:checked ~ .radioCustomLabel:before {
+/*the line below is setting the .radioCustomLabel class items before the radioCustomButton*/
+.radioCustomLabel:before > .radioCustomButton:checked {
   content: '';
   background-size: 27px;
   background: #8bc53f url(/icon-check.7937eee6.svg) no-repeat;

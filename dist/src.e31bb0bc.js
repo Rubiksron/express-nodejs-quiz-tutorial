@@ -27837,7 +27837,6 @@ var _reactAddonsCssTransitionGroup = _interopRequireDefault(require("react-addon
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { CSSTransitionGroup } from 'react-transition-group';
 function Result(props) {
   return _react.default.createElement(_reactAddonsCssTransitionGroup.default, {
     className: "container result",
@@ -27900,19 +27899,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function AnswerOption(props) {
   return _react.default.createElement("li", {
     className: "answerOption"
+  }, _react.default.createElement("label", {
+    className: "radioCustomLabel"
   }, _react.default.createElement("input", {
+    class: "radioCustomButton",
     type: "radio",
-    className: "radioCustomButton",
-    name: "radioGroup",
-    checked: props.answerType === props.answer,
-    id: props.answerType,
     value: props.answerType,
     disabled: props.answer,
-    onChange: props.onAnswerSelected
-  }), _react.default.createElement("label", {
-    className: "radioCustomLabel",
-    htmlFor: props.answerType
-  }, props.answerContent));
+    onChange: function onChange(e) {
+      return props.onAnswerSelected(props.answerType);
+    }
+  }), props.answerContent));
 }
 
 AnswerOption.propTypes = {
@@ -27945,15 +27942,15 @@ var _AnswerOption = _interopRequireDefault(require("../components/AnswerOption")
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// import { CSSTransitionGroup } from 'react-transition-group';
 function Quiz(props) {
   function renderAnswerOptions(key) {
+    // console.log('key', key);
     return _react.default.createElement(_AnswerOption.default, {
-      key: key.content,
-      answerContent: key.content,
-      answerType: key.type,
       answer: props.answer,
       questionId: props.questionId,
+      answerContent: key.content,
+      key: key.content,
+      answerType: key.type,
       onAnswerSelected: props.onAnswerSelected
     });
   }
@@ -28400,7 +28397,8 @@ function (_React$Component) {
     };
     _this.handleAnswerSelected = _this.handleAnswerSelected.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } //shuffledAnswerOptions is an array of arrays of objects.
+
 
   _createClass(App, [{
     key: "componentWillMount",
@@ -28411,11 +28409,14 @@ function (_React$Component) {
         return _this2.shuffleArray(question.answers);
       });
 
+      console.log('shuffledAnswerOptions', shuffledAnswerOptions);
       this.setState({
         question: _quizQuestions.default[0].question,
         answerOptions: shuffledAnswerOptions[0]
       });
     }
+    /*the below came from stack overflow: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array*/
+
   }, {
     key: "shuffleArray",
     value: function shuffleArray(array) {
@@ -28435,11 +28436,13 @@ function (_React$Component) {
     }
   }, {
     key: "handleAnswerSelected",
+
+    /*The event passed below comes from AnswerOption where the onChange is declared*/
     value: function handleAnswerSelected(event) {
       var _this3 = this;
 
-      console.log('event.currentTarget.value: ', event.currentTarget.value);
-      this.setUserAnswer(event.currentTarget.value);
+      console.log('event:', event);
+      this.setUserAnswer(event);
 
       if (this.state.questionId < _quizQuestions.default.length) {
         setTimeout(function () {
@@ -28449,11 +28452,13 @@ function (_React$Component) {
         setTimeout(function () {
           return _this3.setResults(_this3.getResults());
         }, 300);
-      }
+      } // console.log('this.state: ', this.state);
+
     }
   }, {
     key: "setUserAnswer",
     value: function setUserAnswer(answer) {
+      console.log('answer: ', answer);
       var updatedAnswersCount = (0, _reactAddonsUpdate.default)(this.state.answersCount, _defineProperty({}, answer, {
         $apply: function $apply(currentValue) {
           return currentValue + 1;
@@ -28506,14 +28511,16 @@ function (_React$Component) {
           result: 'Undetermined'
         });
       }
+
+      console.log('result: ', result);
     }
   }, {
     key: "renderQuiz",
     value: function renderQuiz() {
       return _react.default.createElement(_Quiz.default, {
         answer: this.state.answer,
-        answerOptions: this.state.answerOptions,
         questionId: this.state.questionId,
+        answerOptions: this.state.answerOptions,
         question: this.state.question,
         questionTotal: _quizQuestions.default.length,
         onAnswerSelected: this.handleAnswerSelected
@@ -28584,7 +28591,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57928" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56162" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
