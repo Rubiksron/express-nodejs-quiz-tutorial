@@ -27902,7 +27902,7 @@ function AnswerOption(props) {
   }, _react.default.createElement("label", {
     className: "radioCustomLabel"
   }, _react.default.createElement("input", {
-    class: "radioCustomButton",
+    className: "radioCustomButton",
     type: "radio",
     value: props.answerType,
     disabled: props.answer,
@@ -28591,7 +28591,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56162" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59161" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

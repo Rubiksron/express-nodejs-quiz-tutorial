@@ -6,7 +6,7 @@ function AnswerOption(props) {
     <li className="answerOption">
       <label className="radioCustomLabel">
         <input
-        class="radioCustomButton"
+        className="radioCustomButton"
         type="radio"
         value={props.answerType}
         disabled={props.answer}
