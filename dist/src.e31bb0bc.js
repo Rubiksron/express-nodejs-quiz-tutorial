@@ -28441,7 +28441,21 @@ function (_React$Component) {
     value: function handleAnswerSelected(event) {
       var _this3 = this;
 
-      console.log('event:', event);
+      if (event == 'wrong') {
+        document.getElementById('App').style.color = 'red';
+        setTimeout(function () {
+          document.getElementById('App').style.color = 'black';
+        }, 725);
+        console.log('hello');
+      }
+
+      if (event == 'correct') {
+        document.getElementById('App').style.color = 'green';
+        setTimeout(function () {
+          document.getElementById('App').style.color = 'black';
+        }, 725);
+      }
+
       this.setUserAnswer(event);
 
       if (this.state.questionId < _quizQuestions.default.length) {
@@ -28591,7 +28605,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59161" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58963" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
