@@ -51,7 +51,20 @@ class App extends React.Component {
 
 /*The event passed below comes from AnswerOption where the onChange is declared*/
   handleAnswerSelected(event) {
-    console.log('event:', event);
+    if(event == 'wrong') {
+      document.getElementById('App').style.color = 'red';
+      setTimeout(function() {
+        document.getElementById('App').style.color = 'black';
+      }, 725)
+      console.log('hello');
+    }
+    if(event == 'correct') {
+      document.getElementById('App').style.color = 'green';
+      setTimeout(function() {
+        document.getElementById('App').style.color = 'black';
+      }, 725)
+    }
+
     this.setUserAnswer(event);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);

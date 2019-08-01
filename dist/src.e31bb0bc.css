@@ -1,3 +1,7 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 body {
   margin: 0;
   padding: 0;
@@ -91,10 +95,10 @@ body {
   transition: all 0.3s; }
 
 /*the line below is setting the .radioCustomLabel class items before the radioCustomButton*/
-.radioCustomLabel:before > .radioCustomButton:checked {
+.radioCustomLabel > .radioCustomButton:checked {
   content: '';
   background-size: 27px;
-  background: #8bc53f url(/icon-check.7937eee6.svg) no-repeat;
+  background-color: #8bc53f url(/icon-check.7937eee6.svg) no-repeat;
   border-color: #8bc53f; }
 
 /* Animation */
