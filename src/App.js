@@ -35,7 +35,7 @@ class App extends React.Component {
     });
   }
 
-/*the below came from stack overflow: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array*/
+/*the below is the Fisher-Yeates shuffle*/
   shuffleArray(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -51,12 +51,10 @@ class App extends React.Component {
 /*The event passed below comes from AnswerOption where the onChange is declared*/
   handleAnswerSelected(event) {
     if(event == 'wrong') {
-      var li = document.getElementsByClassName('answerOption')
-      console.log(li, 'li');
       document.getElementById('App').style.color = 'red';
+      // document.getElementById('body').style.backgroundColor = 'red';
+      // setTimeout(() => {document.getElementById('body').style.backgroundColor = '#D3D3D3'}, 725)
       setTimeout(() => {document.getElementById('App').style.color = 'black'}, 725)
-      setTimeout(() => {document.getElementById('body').style.backgroundColor = '#D3D3D3'}, 725)
-
     }
     if(event == 'correct') {
       document.getElementById('App').style.color = '#8bc53f';
@@ -73,7 +71,6 @@ class App extends React.Component {
   }
 
   setUserAnswer(answer) {
-    console.log('answer: ', answer);
     const updatedAnswersCount = update(this.state.answersCount, {
       [answer]: { $apply: (currentValue) => currentValue + 1
       }
@@ -113,7 +110,6 @@ class App extends React.Component {
     } else {
       this.setState({ result: 'Undetermined' });
     }
-    console.log('result: ', result);
   }
 
   renderQuiz() {

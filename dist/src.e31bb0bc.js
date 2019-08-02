@@ -27845,7 +27845,7 @@ function Result(props) {
     transitionEnterTimeout: 800,
     transitionLeaveTimeout: 500,
     transitionAppear: true,
-    transitionAppearTimeout: 500
+    transitionAppearTimeout: 800
   }, _react.default.createElement("div", null, _react.default.createElement("h2", {
     className: "center"
   }, "You got ", props.answersCount.correct, " right and ", props.answersCount.wrong, " wrong.")));
@@ -28413,7 +28413,7 @@ function (_React$Component) {
         answerOptions: shuffledAnswerOptions[0]
       });
     }
-    /*the below came from stack overflow: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array*/
+    /*the below is the Fisher-Yeates shuffle*/
 
   }, {
     key: "shuffleArray",
@@ -28440,14 +28440,11 @@ function (_React$Component) {
       var _this3 = this;
 
       if (event == 'wrong') {
-        var li = document.getElementsByClassName('answerOption');
-        console.log(li, 'li');
-        document.getElementById('App').style.color = 'red';
+        document.getElementById('App').style.color = 'red'; // document.getElementById('body').style.backgroundColor = 'red';
+        // setTimeout(() => {document.getElementById('body').style.backgroundColor = '#D3D3D3'}, 725)
+
         setTimeout(function () {
           document.getElementById('App').style.color = 'black';
-        }, 725);
-        setTimeout(function () {
-          document.getElementById('body').style.backgroundColor = '#D3D3D3';
         }, 725);
       }
 
@@ -28474,7 +28471,6 @@ function (_React$Component) {
   }, {
     key: "setUserAnswer",
     value: function setUserAnswer(answer) {
-      console.log('answer: ', answer);
       var updatedAnswersCount = (0, _reactAddonsUpdate.default)(this.state.answersCount, _defineProperty({}, answer, {
         $apply: function $apply(currentValue) {
           return currentValue + 1;
@@ -28527,8 +28523,6 @@ function (_React$Component) {
           result: 'Undetermined'
         });
       }
-
-      console.log('result: ', result);
     }
   }, {
     key: "renderQuiz",
@@ -28605,7 +28599,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53407" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49973" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
