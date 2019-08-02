@@ -5,14 +5,18 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.html",
-    "build": "parcel build ./src/index.html/"
+    "build": "parcel build ./src/index.html/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d src"
   },
+  "homepage": "https://rubiksron.github.io/express-nodejs-quiz-tutorial",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Rubiksron/express-nodejs-quiz-tutorial.git"
   },
   "dependencies": {
     "express": "^4.16.4",
+    "gh-pages": "^2.0.1",
     "path": "^0.12.7",
     "react": "^16.2.0",
     "react-addons-css-transition-group": "^15.6.2",
@@ -31,6 +35,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Rubiksron/express-nodejs-quiz-tutorial/issues"
-  },
-  "homepage": "https://github.com/Rubiksron/express-nodejs-quiz-tutorial#readme"
+  }
 }

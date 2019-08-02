@@ -81,7 +81,7 @@ body {
   transition: all 0.3s; }
 
 /*the line below is setting the .radioCustomLabel class items before the radioCustomButton, tried setting to active, tried using javascript to target the radio button*/
-.radioCustomLabel:checked {
+.radioCustomLabel > .radioCustomLabel:checked {
   content: '';
   background-size: 27px;
   background-color: #8bc53f url(/icon-check.7937eee6.svg) no-repeat;

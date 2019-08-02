@@ -12,7 +12,7 @@ function Result(props) {
       transitionEnterTimeout={800}
       transitionLeaveTimeout={500}
       transitionAppear
-      transitionAppearTimeout={500}
+      transitionAppearTimeout={800}
     >
       <div>
         <h2 className="center">You got {props.answersCount.correct} right and {props.answersCount.wrong} wrong.</h2>
