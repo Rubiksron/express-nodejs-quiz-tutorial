@@ -27944,7 +27944,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Quiz(props) {
   function renderAnswerOptions(key) {
-    // console.log('key', key);
     return _react.default.createElement(_AnswerOption.default, {
       answer: props.answer,
       questionId: props.questionId,
@@ -28409,7 +28408,6 @@ function (_React$Component) {
         return _this2.shuffleArray(question.answers);
       });
 
-      console.log('shuffledAnswerOptions', shuffledAnswerOptions);
       this.setState({
         question: _quizQuestions.default[0].question,
         answerOptions: shuffledAnswerOptions[0]
@@ -28442,15 +28440,19 @@ function (_React$Component) {
       var _this3 = this;
 
       if (event == 'wrong') {
+        var li = document.getElementsByClassName('answerOption');
+        console.log(li, 'li');
         document.getElementById('App').style.color = 'red';
         setTimeout(function () {
           document.getElementById('App').style.color = 'black';
         }, 725);
-        console.log('hello');
+        setTimeout(function () {
+          document.getElementById('body').style.backgroundColor = '#D3D3D3';
+        }, 725);
       }
 
       if (event == 'correct') {
-        document.getElementById('App').style.color = 'green';
+        document.getElementById('App').style.color = '#8bc53f';
         setTimeout(function () {
           document.getElementById('App').style.color = 'black';
         }, 725);
@@ -28554,9 +28556,7 @@ function (_React$Component) {
         className: "App"
       }, _react.default.createElement("div", {
         className: "App-header"
-      }, _react.default.createElement("h2", {
-        className: "center"
-      }, "Express Quiz")), this.state.result ? this.renderResult() : this.renderQuiz());
+      }), this.state.result ? this.renderResult() : this.renderQuiz());
     }
   }]);
 
@@ -28605,7 +28605,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58963" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53407" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

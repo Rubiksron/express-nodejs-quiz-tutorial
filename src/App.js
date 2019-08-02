@@ -29,7 +29,6 @@ class App extends React.Component {
 //shuffledAnswerOptions is an array of arrays of objects.
   componentWillMount() {
     const shuffledAnswerOptions = quizQuestions.map((question) => this.shuffleArray(question.answers));
-    console.log('shuffledAnswerOptions', shuffledAnswerOptions);
     this.setState({
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0]
@@ -52,17 +51,16 @@ class App extends React.Component {
 /*The event passed below comes from AnswerOption where the onChange is declared*/
   handleAnswerSelected(event) {
     if(event == 'wrong') {
+      var li = document.getElementsByClassName('answerOption')
+      console.log(li, 'li');
       document.getElementById('App').style.color = 'red';
-      setTimeout(function() {
-        document.getElementById('App').style.color = 'black';
-      }, 725)
-      console.log('hello');
+      setTimeout(() => {document.getElementById('App').style.color = 'black'}, 725)
+      setTimeout(() => {document.getElementById('body').style.backgroundColor = '#D3D3D3'}, 725)
+
     }
     if(event == 'correct') {
-      document.getElementById('App').style.color = 'green';
-      setTimeout(function() {
-        document.getElementById('App').style.color = 'black';
-      }, 725)
+      document.getElementById('App').style.color = '#8bc53f';
+      setTimeout(() => {document.getElementById('App').style.color = 'black'}, 725)
     }
 
     this.setUserAnswer(event);
@@ -139,7 +137,6 @@ class App extends React.Component {
     return (
       <div className="App">
       <div className="App-header">
-      <h2 className="center">Express Quiz</h2>
       </div>
       {this.state.result ? this.renderResult() : this.renderQuiz()}
       </div>
