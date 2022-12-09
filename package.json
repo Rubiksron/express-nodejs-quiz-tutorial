@@ -15,7 +15,7 @@
     "url": "git+https://github.com/Rubiksron/express-nodejs-quiz-tutorial.git"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "gh-pages": "^2.0.1",
     "path": "^0.12.7",
     "react": "^16.2.0",
